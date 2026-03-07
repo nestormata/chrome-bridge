@@ -1,0 +1,29 @@
+{
+  "name": "chrome-cli-bridge",
+  "version": "0.1.0",
+  "description": "Connect CLI tools and AI agents to a live Chrome tab via WebSocket bridge",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "chrome-bridge": "./bin/chrome-bridge.js"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node bin/chrome-bridge.js start",
+    "bridge": "node bin/chrome-bridge.js",
+    "test": "node --test tests/unit/**/*.test.js",
+    "test:integration": "node --test tests/integration/**/*.test.js"
+  },
+  "dependencies": {
+    "ws": "^8.17.0",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "puppeteer": "^22.0.0"
+  }
+}

@@ -1,0 +1,6 @@
+node_modules/
+.claude/
+.github/
+openspec/
+.chrome-cli-bridge.token
+~/.chrome-cli-bridge.token

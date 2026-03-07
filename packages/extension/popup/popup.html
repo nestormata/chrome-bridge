@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>chrome-cli-bridge</title>
+  <style>
+    body { font-family: system-ui, sans-serif; width: 320px; padding: 16px; margin: 0; }
+    h1 { font-size: 14px; margin: 0 0 12px; color: #1a1a1a; }
+    label { font-size: 12px; color: #555; display: block; margin-bottom: 4px; }
+    input { width: 100%; box-sizing: border-box; padding: 6px 8px; border: 1px solid #ccc;
+            border-radius: 4px; font-size: 12px; font-family: monospace; }
+    input:focus { outline: none; border-color: #0070f3; }
+    .row { display: flex; gap: 8px; margin-top: 10px; }
+    button { flex: 1; padding: 7px; border: none; border-radius: 4px; font-size: 12px;
+             cursor: pointer; background: #0070f3; color: #fff; }
+    button:hover { background: #005dd1; }
+    button.secondary { background: #f5f5f5; color: #333; border: 1px solid #ddd; }
+    button.secondary:hover { background: #e8e8e8; }
+    .status { margin-top: 12px; font-size: 11px; padding: 6px 8px; border-radius: 4px;
+              display: none; }
+    .status.ok  { background: #e6f4ea; color: #1e8e3e; display: block; }
+    .status.err { background: #fce8e6; color: #c5221f; display: block; }
+    .port-row { display: flex; gap: 8px; margin-top: 10px; align-items: flex-end; }
+    .port-row > div { flex: 1; }
+    .hint { font-size: 10px; color: #888; margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <h1>🔌 chrome-cli-bridge</h1>
+
+  <label for="token">Session Token</label>
+  <input id="token" type="text" placeholder="Paste token from chrome-bridge start" spellcheck="false">
+
+  <div class="port-row">
+    <div>
+      <label for="port">Relay Port</label>
+      <input id="port" type="number" value="9876" min="1024" max="65535" style="width:90px">
+    </div>
+  </div>
+
+  <div class="row">
+    <button id="save">Connect</button>
+    <button id="clear" class="secondary">Disconnect</button>
+  </div>
+
+  <div id="status" class="status"></div>
+  <p class="hint">Run <code>chrome-bridge start</code> in your terminal to get the token.</p>
+
+  <script src="popup.js"></script>
+</body>
+</html>
