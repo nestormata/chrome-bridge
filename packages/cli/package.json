@@ -19,6 +19,28 @@
     "test": "node --test tests/unit/**/*.test.js",
     "test:integration": "node --test tests/integration/**/*.test.js"
   },
+  "keywords": [
+    "chrome",
+    "browser",
+    "automation",
+    "cli",
+    "ai",
+    "websocket",
+    "devtools",
+    "scraping",
+    "bridge",
+    "agent"
+  ],
+  "author": "Nestor Mata <nestor.mata@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nestormata/chrome-bridge.git"
+  },
+  "homepage": "https://github.com/nestormata/chrome-bridge#readme",
+  "bugs": {
+    "url": "https://github.com/nestormata/chrome-bridge/issues"
+  },
   "dependencies": {
     "ws": "^8.17.0",
     "yargs": "^17.7.2"

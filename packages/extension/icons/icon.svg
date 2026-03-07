@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0d1b2a"/>
+      <stop offset="100%" stop-color="#050d14"/>
+    </radialGradient>
+    <radialGradient id="faceGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#0a1f36"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="eyeGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="62" fill="url(#bgGrad)"/>
+
+  <!-- Spider web: radial spokes from center (64,64) -->
+  <g stroke="#1a4060" stroke-width="0.7" opacity="0.7">
+    <!-- 8 spokes -->
+    <line x1="64" y1="64" x2="64" y2="4"/>
+    <line x1="64" y1="64" x2="108" y2="20"/>
+    <line x1="64" y1="64" x2="124" y2="64"/>
+    <line x1="64" y1="64" x2="108" y2="108"/>
+    <line x1="64" y1="64" x2="64" y2="124"/>
+    <line x1="64" y1="64" x2="20" y2="108"/>
+    <line x1="64" y1="64" x2="4" y2="64"/>
+    <line x1="64" y1="64" x2="20" y2="20"/>
+  </g>
+  <!-- Spider web: concentric arcs (4 rings) -->
+  <g fill="none" stroke="#1a4060" stroke-width="0.7" opacity="0.7">
+    <circle cx="64" cy="64" r="15"/>
+    <circle cx="64" cy="64" r="28"/>
+    <circle cx="64" cy="64" r="42"/>
+    <circle cx="64" cy="64" r="58"/>
+  </g>
+
+  <!-- Robot head body -->
+  <rect x="32" y="44" width="64" height="54" rx="8" ry="8" fill="url(#faceGrad)" stroke="#2a7abf" stroke-width="1.5"/>
+
+  <!-- Antenna base -->
+  <rect x="59" y="36" width="10" height="10" rx="2" fill="#1e3a5f" stroke="#2a7abf" stroke-width="1"/>
+  <!-- Antenna pole -->
+  <line x1="64" y1="36" x2="64" y2="24" stroke="#2a7abf" stroke-width="2" stroke-linecap="round"/>
+  <!-- Antenna tip orb -->
+  <circle cx="64" cy="21" r="5" fill="#00aaff" filter="url(#eyeGlow)" opacity="0.9"/>
+  <circle cx="64" cy="21" r="3" fill="#66d4ff"/>
+
+  <!-- Ear bolts -->
+  <circle cx="32" cy="65" r="4" fill="#0a1f36" stroke="#2a7abf" stroke-width="1"/>
+  <circle cx="32" cy="65" r="2" fill="#2a7abf"/>
+  <circle cx="96" cy="65" r="4" fill="#0a1f36" stroke="#2a7abf" stroke-width="1"/>
+  <circle cx="96" cy="65" r="2" fill="#2a7abf"/>
+
+  <!-- Eyes -->
+  <rect x="40" y="56" width="18" height="14" rx="3" fill="#001830" stroke="#00aaff" stroke-width="1.2"/>
+  <rect x="70" y="56" width="18" height="14" rx="3" fill="#001830" stroke="#00aaff" stroke-width="1.2"/>
+  <!-- Eye glow pupils -->
+  <ellipse cx="49" cy="63" rx="5" ry="4" fill="#00aaff" filter="url(#eyeGlow)" opacity="0.9"/>
+  <ellipse cx="79" cy="63" rx="5" ry="4" fill="#00aaff" filter="url(#eyeGlow)" opacity="0.9"/>
+  <ellipse cx="49" cy="63" rx="3" ry="2.5" fill="#99e4ff"/>
+  <ellipse cx="79" cy="63" rx="3" ry="2.5" fill="#99e4ff"/>
+
+  <!-- Nose dot -->
+  <circle cx="64" cy="74" r="2" fill="#2a7abf" opacity="0.7"/>
+
+  <!-- Mouth grille: 5 vertical bars -->
+  <rect x="43" y="82" width="42" height="10" rx="4" fill="#001830" stroke="#2a7abf" stroke-width="1"/>
+  <g fill="#2a7abf" opacity="0.8">
+    <rect x="47" y="84" width="3" height="6" rx="1"/>
+    <rect x="53" y="84" width="3" height="6" rx="1"/>
+    <rect x="59" y="84" width="3" height="6" rx="1"/>
+    <rect x="65" y="84" width="3" height="6" rx="1"/>
+    <rect x="71" y="84" width="3" height="6" rx="1"/>
+    <rect x="77" y="84" width="3" height="6" rx="1"/>
+  </g>
+
+  <!-- Border glow ring -->
+  <circle cx="64" cy="64" r="62" fill="none" stroke="#0a4070" stroke-width="2" opacity="0.8"/>
+</svg>
