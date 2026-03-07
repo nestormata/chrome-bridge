@@ -1,11 +1,11 @@
 {
   "name": "chrome-cli-bridge",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Connect CLI tools and AI agents to a live Chrome tab via WebSocket bridge",
   "type": "module",
   "main": "src/index.js",
   "bin": {
-    "chrome-bridge": "./bin/chrome-bridge.js"
+    "chrome-bridge": "bin/chrome-bridge.js"
   },
   "exports": {
     ".": "./src/index.js"
@@ -35,7 +35,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nestormata/chrome-bridge.git"
+    "url": "git+https://github.com/nestormata/chrome-bridge.git"
   },
   "homepage": "https://github.com/nestormata/chrome-bridge#readme",
   "bugs": {

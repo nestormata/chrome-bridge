@@ -53,6 +53,15 @@ npm install -g chrome-cli-bridge
 
 ### 2. Load the Chrome extension
 
+Install the companion extension using either method:
+
+**Option A — Chrome Web Store (recommended)**
+
+Install directly — no Developer mode required:
+[chrome-cli-bridge on the Chrome Web Store](https://chrome.google.com/webstore/detail/chrome-cli-bridge)
+
+**Option B — Load from source (for contributors / offline)**
+
 1. Open `chrome://extensions` in Chrome
 2. Enable **Developer mode** (top-right toggle)
 3. Click **Load unpacked** and select the `packages/extension/` directory
@@ -426,6 +435,15 @@ npm install -g chrome-cli-bridge
 ```
 
 ### 2. Load the Chrome extension
+
+Install the companion extension using either method:
+
+**Option A — Chrome Web Store (recommended)**
+
+Install directly — no Developer mode required:
+[chrome-cli-bridge on the Chrome Web Store](https://chrome.google.com/webstore/detail/chrome-cli-bridge)
+
+**Option B — Load from source (for contributors / offline)**
 
 1. Open `chrome://extensions` in Chrome
 2. Enable **Developer mode** (top-right toggle)
