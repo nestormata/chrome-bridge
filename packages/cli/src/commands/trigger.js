@@ -17,6 +17,6 @@ export async function handler(argv) {
     client.close()
   } catch (e) {
     err(e.message)
-    process.exit(e.code === -32001 ? 1 : 1)
+    process.exit(e.code === -32001 ? 2 : 1)
   }
 }

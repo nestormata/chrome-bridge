@@ -13,6 +13,10 @@ export async function getClient(port = 9876) {
   return _client
 }
 
+export function resetClient() {
+  _client = null
+}
+
 export class RelayClient {
   #ws = null
   #token
@@ -20,7 +24,8 @@ export class RelayClient {
   #pendingCalls = new Map()
   #eventHandlers = new Map()
   #nextId = (() => { let i = 0; return () => ++i })()
-
+  #handshakeResolve = null
+  #handshakeReject = null
   constructor(port, token) {
     this.#port = port
     this.#token = token
@@ -35,16 +40,18 @@ export class RelayClient {
         this.#ws.off('error', reject)
         this.#ws.on('error', () => {})
         this.#ws.on('message', (data) => this.#onMessage(data))
-        // send handshake with cli role
+        // Send handshake; resolve only after relay acknowledges (id: 0 response)
+        this.#handshakeResolve = resolve
+        this.#handshakeReject = reject
         this.#ws.send(JSON.stringify({
           jsonrpc: '2.0', method: 'handshake', params: { token: this.#token, role: 'cli' }, id: 0,
         }))
-        resolve()
       })
     })
   }
 
   close() {
+    _client = null   // reset the module singleton so getClient() creates fresh next time
     this.#ws?.terminate()
     this.#ws = null
   }
@@ -70,6 +77,18 @@ export class RelayClient {
   #onMessage(data) {
     let msg
     try { msg = JSON.parse(data.toString()) } catch { return }
+
+    // Handshake acknowledgment (id === 0)
+    if (msg.id === 0) {
+      if (msg.error) {
+        this.#handshakeReject?.(new Error(msg.error.message ?? 'Handshake rejected'))
+      } else {
+        this.#handshakeResolve?.()
+      }
+      this.#handshakeResolve = null
+      this.#handshakeReject = null
+      return
+    }
 
     if (msg.id !== undefined && (msg.result !== undefined || msg.error)) {
       const pending = this.#pendingCalls.get(msg.id)
